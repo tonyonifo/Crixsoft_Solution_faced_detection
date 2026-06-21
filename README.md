@@ -1,8 +1,8 @@
 # 👁️ FaceAI CLI
 
-> **A lightweight, single-file AI face detection CLI for Python and Termux.**
+> **A lightweight AI face detection CLI for Python and Termux.**
 
-FaceAI CLI is a minimal command-line application that performs face detection on images, videos, or a live webcam using OpenCV. Designed as a **single Python script**, it is easy to copy, modify, and run on desktops, Linux servers, Raspberry Pi, and Android devices using Termux.
+FaceAI CLI is a minimal command-line application that performs face detection on images, videos, or a live webcam using OpenCV. It is easy to copy, modify, and run on desktops, Linux servers, Raspberry Pi, and Android devices using Termux.
 
 ---
 
@@ -29,11 +29,14 @@ FaceAI CLI is a minimal command-line application that performs face detection on
 
 ```text
 .
+├── README.md
 ├── faceai.py
-└── README.md
+├── requirements.txt
+└── src
+    └── scripts
+        └── devops
+            └── install_dependencies.sh
 ```
-
-Everything lives inside one Python file.
 
 ---
 
@@ -52,10 +55,21 @@ Everything lives inside one Python file.
 
 ```bash
 python -m venv .venv
-
 source .venv/bin/activate
-
 pip install typer rich opencv-python
+```
+
+If you see OpenCV runtime errors such as missing `libGL.so.1`, install the system library on Debian/Ubuntu:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y libgl1 libglib2.0-0
+```
+
+Or use the helper script:
+
+```bash
+bash src/scripts/devops/install_dependencies.sh
 ```
 
 ## Windows
